@@ -1,0 +1,77 @@
+// Sample Calibre SVRF DRC Deck for Testing
+
+// Layer Definitions
+LAYER DIFF 1
+LAYER POLY 5
+LAYER NWELL 2
+LAYER CONTACT 6
+LAYER METAL1 10
+LAYER METAL2 11
+
+// Diffusion Rules
+DIFF_WIDTH { @ Minimum width of diffusion = 0.1um
+    WIDTH DIFF < 0.1
+}
+
+DIFF_SPACE { @ Minimum spacing between diffusion = 0.14um
+    EXTERNAL DIFF < 0.14
+}
+
+// Polysilicon Rules
+POLY_WIDTH { @ Minimum width of poly = 0.08um
+    WIDTH POLY < 0.08
+}
+
+POLY_SPACE { @ Minimum spacing between poly = 0.12um
+    EXTERNAL POLY < 0.12
+}
+
+// Boolean Operations
+GATE = AND POLY DIFF
+
+POLY_NOT_GATE = NOT POLY GATE
+
+// Contact Rules
+CONT_WIDTH { @ Contact width must be 0.06um
+    WIDTH CONTACT < 0.06
+}
+
+CONT_SPACE { @ Contact spacing = 0.08um
+    EXTERNAL CONTACT < 0.08
+}
+
+// Enclosure Rules
+CONT_DIFF_ENC { @ Diffusion must enclose contact by 0.04um
+    ENC DIFF CONTACT < 0.04
+}
+
+// Metal1 Rules
+M1_WIDTH { @ Metal1 minimum width = 0.09um
+    WIDTH METAL1 < 0.09
+}
+
+M1_SPACE { @ Metal1 minimum spacing = 0.09um
+    EXTERNAL METAL1 < 0.09
+}
+
+M1_CONT_ENC { @ Metal1 enclosure of contact = 0.01um
+    ENC METAL1 CONTACT < 0.01
+}
+
+// Metal2 Rules
+M2_WIDTH { @ Metal2 minimum width = 0.10um
+    WIDTH METAL2 < 0.10
+}
+
+M2_SPACE { @ Metal2 minimum spacing = 0.10um
+    EXTERNAL METAL2 < 0.10
+}
+
+// Well Rules
+NWELL_WIDTH { @ N-well minimum width = 0.84um
+    WIDTH NWELL < 0.84
+}
+
+NWELL_SPACE { @ N-well minimum spacing = 1.27um
+    EXTERNAL NWELL < 1.27
+}

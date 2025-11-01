@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test outputs
+*.log
+*.rpt
+*.vue
+*.db
+test_results/
+results/
+reports/
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+
+# DRC/LVS results
+*.LAYOUT_ERRORS
+*.LVS_ERRORS
+*.drc_errors
+*.lvs_errors
+
+# Large layout files (optional - uncomment if you don't want to track GDS)
+# *.gds
+# *.oas
+# *.gds.gz
+
+# Compiled files
+*.o
+*.a
+*.lib
+*.exe
