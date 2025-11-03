@@ -42,6 +42,9 @@ python3 mini_translator_prototype.py -i test_input.svrf -o output.rs -v
 
 ### For Building Your Own Translator
 ```bash
+# Try the translator demo (START HERE!)
+cat TRANSLATOR_DEMO.md
+
 # Read recommendations
 cat TRANSLATOR_RECOMMENDATION_SUMMARY.md
 
@@ -58,12 +61,14 @@ cat BUILDING_SVRF_TO_PXL_TRANSLATOR.md
 
 ```
 .
-├── Documentation/                  (117KB docs)
+├── Documentation/                  (150KB+ docs)
 │   ├── README_ICV_DRC.md                    # ICV basics & PXL syntax
 │   ├── ICV_FUNCTION_REFERENCE.md            # PXL function locations
 │   ├── CALIBRE_TO_ICV_MIGRATION_GUIDE.md    # Migration strategies
 │   ├── BUILDING_SVRF_TO_PXL_TRANSLATOR.md   # Translator implementation
 │   ├── TRANSLATOR_RECOMMENDATION_SUMMARY.md # Quick recommendation
+│   ├── TRANSLATOR_DEMO.md                   # Complete demo & examples
+│   ├── USING_CALIBRE_ICV_PAIRS_FOR_TRANSLATOR.md # ICV pairs guide
 │   ├── CALIBRE_ICV_VERIFICATION_GUIDE.md    # Verification methods
 │   └── ALL_FILES_INDEX.md                   # Master index
 │
@@ -153,6 +158,14 @@ python3 compare_drc_results.py -c calibre.rpt -i icv.log -v
 
 ## 📖 Documentation Highlights
 
+### TRANSLATOR_DEMO.md (33KB) ⭐ NEW!
+- Complete hands-on translator demos
+- 6 detailed walkthrough examples
+- All rule types covered (width, spacing, enclosure, area, boolean)
+- Real-world use cases and workflows
+- Command-line options guide
+- Troubleshooting and best practices
+
 ### README_ICV_DRC.md (6KB)
 - IC Validator overview
 - PXL function reference
@@ -210,9 +223,10 @@ Includes:
 - Verification procedures
 
 ### 3. Building a Translator
-**Start here:** `TRANSLATOR_RECOMMENDATION_SUMMARY.md` → `mini_translator_prototype.py`
+**Start here:** `TRANSLATOR_DEMO.md` → `mini_translator_prototype.py` → `BUILDING_SVRF_TO_PXL_TRANSLATOR.md`
 
 Provides:
+- Hands-on demos and examples (NEW!)
 - Working prototype to study
 - Complete implementation guide
 - Technology stack recommendation
