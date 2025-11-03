@@ -39,6 +39,9 @@ python3 mini_translator_prototype.py -i test_input.svrf -o output.rs -v
 # Compare variables between Calibre and ICV ⭐ NEW!
 python3 compare_variables.py -c calibre.svrf -i icv.rs
 
+# Understand semantic mappings (N:1, 1:N relationships)
+cat VARIABLE_MAPPING_SEMANTIC_GUIDE.md
+
 # Verify results match
 ./quick_compare.sh calibre.log icv.log
 ```
@@ -64,7 +67,7 @@ cat BUILDING_SVRF_TO_PXL_TRANSLATOR.md
 
 ```
 .
-├── Documentation/                  (200KB+ docs)
+├── Documentation/                  (260KB+ docs)
 │   ├── README_ICV_DRC.md                    # ICV basics & PXL syntax
 │   ├── ICV_FUNCTION_REFERENCE.md            # PXL function locations
 │   ├── CALIBRE_TO_ICV_MIGRATION_GUIDE.md    # Migration strategies
@@ -72,7 +75,8 @@ cat BUILDING_SVRF_TO_PXL_TRANSLATOR.md
 │   ├── TRANSLATOR_RECOMMENDATION_SUMMARY.md # Quick recommendation
 │   ├── TRANSLATOR_DEMO.md                   # Complete demo & examples
 │   ├── USING_CALIBRE_ICV_PAIRS_FOR_TRANSLATOR.md # ICV pairs guide
-│   ├── MATCHING_CALIBRE_ICV_VARIABLES.md    # Variable sync guide ⭐ NEW!
+│   ├── MATCHING_CALIBRE_ICV_VARIABLES.md    # Variable sync guide
+│   ├── VARIABLE_MAPPING_SEMANTIC_GUIDE.md   # Semantic mapping ⭐ NEW!
 │   ├── CALIBRE_ICV_VERIFICATION_GUIDE.md    # Verification methods
 │   └── ALL_FILES_INDEX.md                   # Master index
 │
@@ -188,13 +192,22 @@ python3 compare_drc_results.py -c calibre.rpt -i icv.log -v
 - Command-line options guide
 - Troubleshooting and best practices
 
-### MATCHING_CALIBRE_ICV_VARIABLES.md (50KB) ⭐ NEW!
+### MATCHING_CALIBRE_ICV_VARIABLES.md (50KB)
 - Understanding variable types (layers, derived, checks)
 - Automated comparison tool documentation
 - Common missing variable patterns
 - Step-by-step synchronization workflow
 - Strategies for keeping files in sync
 - Complete examples and best practices
+
+### VARIABLE_MAPPING_SEMANTIC_GUIDE.md (62KB) ⭐ NEW!
+- Semantic relationships: N:1, 1:N, equivalence
+- Why variables don't match 1:1 between tools
+- Layer consolidation and check decomposition patterns
+- Real-world examples (metal stack, via connectivity, density)
+- Creating variable mapping documentation
+- Tracking semantic coverage vs name matching
+- Best practices for complex mappings
 
 ### README_ICV_DRC.md (6KB)
 - IC Validator overview
@@ -349,18 +362,19 @@ cat docs/README_ICV_DRC.md
 
 | Category | Count | Total Size |
 |----------|-------|------------|
-| **Documentation** | 9 files | 200+ KB |
+| **Documentation** | 10 files | 260+ KB |
 | **Working Code** | 4 files | 40+ KB |
 | **Examples** | 4 files | 15 KB |
 | **External Resources** | 2 repos | ~500 KB |
-| **Total** | 19+ items | 755+ KB |
+| **Total** | 20+ items | 815+ KB |
 
 **Key Metrics:**
 - ✅ Working translator prototype (350 lines)
-- ✅ Variable comparison tool (400 lines) ⭐ NEW!
+- ✅ Variable comparison tool (400 lines)
+- ✅ Semantic mapping guide (N:1, 1:N) ⭐ NEW!
 - ✅ 100% test success rate (16/16 rules)
 - ✅ 4 verification tools
-- ✅ 9 comprehensive guides
+- ✅ 10 comprehensive guides
 - ✅ Complete examples and test cases
 
 ---
