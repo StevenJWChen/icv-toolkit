@@ -36,6 +36,9 @@ cat CALIBRE_TO_ICV_MIGRATION_GUIDE.md
 # Try the translator prototype
 python3 mini_translator_prototype.py -i test_input.svrf -o output.rs -v
 
+# Compare variables between Calibre and ICV ⭐ NEW!
+python3 compare_variables.py -c calibre.svrf -i icv.rs
+
 # Verify results match
 ./quick_compare.sh calibre.log icv.log
 ```
@@ -61,7 +64,7 @@ cat BUILDING_SVRF_TO_PXL_TRANSLATOR.md
 
 ```
 .
-├── Documentation/                  (150KB+ docs)
+├── Documentation/                  (200KB+ docs)
 │   ├── README_ICV_DRC.md                    # ICV basics & PXL syntax
 │   ├── ICV_FUNCTION_REFERENCE.md            # PXL function locations
 │   ├── CALIBRE_TO_ICV_MIGRATION_GUIDE.md    # Migration strategies
@@ -69,11 +72,13 @@ cat BUILDING_SVRF_TO_PXL_TRANSLATOR.md
 │   ├── TRANSLATOR_RECOMMENDATION_SUMMARY.md # Quick recommendation
 │   ├── TRANSLATOR_DEMO.md                   # Complete demo & examples
 │   ├── USING_CALIBRE_ICV_PAIRS_FOR_TRANSLATOR.md # ICV pairs guide
+│   ├── MATCHING_CALIBRE_ICV_VARIABLES.md    # Variable sync guide ⭐ NEW!
 │   ├── CALIBRE_ICV_VERIFICATION_GUIDE.md    # Verification methods
 │   └── ALL_FILES_INDEX.md                   # Master index
 │
-├── Tools/                          (30KB working code)
+├── Tools/                          (40KB working code)
 │   ├── mini_translator_prototype.py         # SVRF→PXL translator (working!)
+│   ├── compare_variables.py                 # Variable matcher ⭐ NEW!
 │   ├── compare_drc_results.py               # Detailed DRC comparison
 │   └── quick_compare.sh                     # Fast statistical check
 │
@@ -122,7 +127,14 @@ cat BUILDING_SVRF_TO_PXL_TRANSLATOR.md
 - Complete architecture and implementation details
 - Testing strategies and best practices
 
-### 5. Verification Tools
+### 5. Variable Matching Tool ⭐ NEW!
+- **compare_variables.py** - Automated variable comparison between Calibre and ICV
+- Identifies missing, matching, and unique variables
+- Generates sync scripts for missing variables
+- Line-by-line comparison with recommendations
+- **MATCHING_CALIBRE_ICV_VARIABLES.md** - Complete synchronization guide
+
+### 6. Verification Tools
 - **quick_compare.sh** - Fast statistical comparison
 - **compare_drc_results.py** - Detailed geometric comparison
 - **CALIBRE_ICV_VERIFICATION_GUIDE.md** - Complete verification framework
@@ -141,7 +153,17 @@ python3 mini_translator_prototype.py -i input.svrf -o output.rs --stats
 - CLI with verbose and stats modes
 - Ready to extend for production use
 
-### 2. DRC Results Comparator
+### 2. Variable Comparator ⭐ NEW!
+```bash
+python3 compare_variables.py -c calibre.svrf -i icv.rs
+```
+**Features:**
+- Identify matching variables
+- Find missing variables in either file
+- Generate sync scripts
+- Detailed statistics and recommendations
+
+### 3. DRC Results Comparator
 ```bash
 # Quick check (30 seconds)
 ./quick_compare.sh calibre.log icv.log
@@ -158,13 +180,21 @@ python3 compare_drc_results.py -c calibre.rpt -i icv.log -v
 
 ## 📖 Documentation Highlights
 
-### TRANSLATOR_DEMO.md (33KB) ⭐ NEW!
+### TRANSLATOR_DEMO.md (33KB)
 - Complete hands-on translator demos
 - 6 detailed walkthrough examples
 - All rule types covered (width, spacing, enclosure, area, boolean)
 - Real-world use cases and workflows
 - Command-line options guide
 - Troubleshooting and best practices
+
+### MATCHING_CALIBRE_ICV_VARIABLES.md (50KB) ⭐ NEW!
+- Understanding variable types (layers, derived, checks)
+- Automated comparison tool documentation
+- Common missing variable patterns
+- Step-by-step synchronization workflow
+- Strategies for keeping files in sync
+- Complete examples and best practices
 
 ### README_ICV_DRC.md (6KB)
 - IC Validator overview
@@ -319,17 +349,18 @@ cat docs/README_ICV_DRC.md
 
 | Category | Count | Total Size |
 |----------|-------|------------|
-| **Documentation** | 7 files | 117 KB |
-| **Working Code** | 3 files | 30 KB |
+| **Documentation** | 9 files | 200+ KB |
+| **Working Code** | 4 files | 40+ KB |
 | **Examples** | 4 files | 15 KB |
 | **External Resources** | 2 repos | ~500 KB |
-| **Total** | 16+ items | 662+ KB |
+| **Total** | 19+ items | 755+ KB |
 
 **Key Metrics:**
 - ✅ Working translator prototype (350 lines)
+- ✅ Variable comparison tool (400 lines) ⭐ NEW!
 - ✅ 100% test success rate (16/16 rules)
-- ✅ 3 verification tools
-- ✅ 7 comprehensive guides
+- ✅ 4 verification tools
+- ✅ 9 comprehensive guides
 - ✅ Complete examples and test cases
 
 ---
